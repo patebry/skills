@@ -1,6 +1,6 @@
 ---
 name: humanize
-description: Rewrite an outbound message to a person — Telegram, Slack, email, a PR or issue comment, a customer or partner update — so it reads as written by a human rather than generated, and cut it to the length it deserves. Not for code comments, documentation, README or spec prose, commit messages, or the assistant's own replies in the terminal — those keep their own conventions. Not for translating, proofreading for grammar only, or drafting a message from scratch with no source text. Use when a draft exists and reads stiff, padded, over-structured, or machine-written, and a real person is about to receive it. Triggers on "humanize", "make this sound human", "cut this in half", "remove the em dashes", "make it less AI", "just give me a quick message", "shorten this before I send it".
+description: Rewrite an outbound message to a person (Telegram, Slack, email, a PR or issue comment, a customer or partner update) so it reads as written by a human rather than generated, and cut it to the length it deserves. Not for code comments, documentation, README or spec prose, commit messages, or the assistant's own replies in the terminal; those keep their own conventions. Not for translating, proofreading for grammar only, or drafting a message from scratch with no source text. Use when a draft exists and reads stiff, padded, over-structured, or machine-written, and a real person is about to receive it. Triggers on "humanize", "make this sound human", "cut this message in half", "remove the em dashes", "make it less AI", "just give me a quick message", "shorten this before I send it".
 ---
 
 # humanize
@@ -31,7 +31,7 @@ These are structural, and they survive any amount of word-level polishing. Name 
 
 **Signposting phrases.** "I wanted to reach out", "just circling back", "as mentioned above", "please don't hesitate to", "I hope this finds you well." They announce the message instead of delivering it.
 
-**Hedging stacks.** "It might potentially be worth considering whether we should perhaps." One hedge is honest. Three is evasion. Pick the single qualifier that carries the real uncertainty.
+**Hedging stacks.** "It might potentially be worth considering whether we should perhaps." One hedge is honest. Three is evasion. Pick the single qualifier that carries the real uncertainty, unless the stack was drafted deliberately: on the messages under "Serious messages" below, a hedge may be doing legal work, so ask before collapsing it.
 
 **Em dashes as the default connector.** More than one in a short message reads as generated. Related tells in the same family: semicolons in casual chat, "not just X but Y", the rule-of-three cadence ("faster, cleaner, cheaper"), and sentences opening with "Importantly," or "Notably,".
 
@@ -41,7 +41,7 @@ These are structural, and they survive any amount of word-level polishing. Name 
 
 **One idea per paragraph, two to four sentences.** A paragraph doing two jobs is two paragraphs.
 
-**Prefer a period.** An em dash, a comma splice, or a colon is usually a sentence boundary in disguise. If a sentence needs an em dash to hold together, it is two sentences. Write them.
+**Prefer a period.** An em dash, a comma splice, or a colon is usually a sentence boundary in disguise. Write the two sentences. The exception is a genuine aside or appositive, where the dash sets off a phrase that could not stand alone; one of those per message is fine.
 
 **Use contractions, and the words the reader would say out loud.** "We can't ship Friday" beats "we will be unable to ship on Friday." Read the draft aloud; anything you would not say, rewrite.
 
@@ -49,7 +49,7 @@ These are structural, and they survive any amount of word-level polishing. Name 
 
 **Cut every sentence that only announces the next one.** "There are two things to flag here." Then flag them.
 
-**Say the risk plainly.** Especially when the news is bad or the mistake was ours. "We missed this in review and it went to production Tuesday" is better received than any softened version, and it is shorter.
+**Say the risk plainly.** Especially when the news is bad or the mistake was ours. "We missed this in review and it went to production Tuesday" is better received than any softened version, and it is shorter. This stops at the line drawn under "Serious messages": state the facts and the impact, but never volunteer fault the draft did not admit.
 
 **Keep the precision.** Humanizing is a register change, not a loss of accuracy. Never trade away a number, a name, a version, or a caveat to sound casual. If a sentence is long because the fact is complicated, it stays long.
 
@@ -115,22 +115,22 @@ A Telegram or Slack note to a colleague is loose: lowercase openings, no salutat
 
 Match the reader's own register when you have their prior messages. If they write in three-word lines, do not send them five paragraphs.
 
-**Do not loosen** legal, financial, security, incident, or contractual messages. There, plain and precise is the goal and casual is a liability. Strip the padding and the hedging, keep every number and qualifier, and never add warmth that implies the situation is lighter than it is. The same holds for anything a third party might read later.
+## Serious messages
+
+Legal, financial, security, incident, and contractual messages, and anything a third party might read later, do not get loosened. Plain and precise is the goal there and casual is a liability.
+
+Strip the padding, keep every number and qualifier, and never add warmth that implies the situation is lighter than it is. Leave hedges that look deliberate and ask about them instead. Do not concede fault, liability, or a cause the draft did not state.
 
 ## Workflow
 
-Establish the channel and the audience. If the draft does not make either obvious, ask in one line before rewriting; the wrong register wastes the whole pass.
-
-Then do two passes:
+Establish the channel and the audience. If the draft does not make either obvious, ask in one line before rewriting; the wrong register wastes the whole pass. If it is legal, financial, security, incident, or contractual, the section above governs the whole rewrite. Then structure, then register:
 
 1. **Structure.** What is the ask, and is it first? What can be deleted entirely? Does anything need to become prose, or prose become a list? Decide the shape before touching wording.
 2. **Register.** Line by line: contractions, em dashes, signposting, hedges, vague nouns. Read it aloud.
 
-Return only the rewritten message, ready to paste. No preamble, no explanation of what you changed, no list of the tells you found. If the user asked for options, give two clearly labelled versions and nothing else.
+Return only the rewritten message, ready to paste. No preamble, no explanation of what you changed, no list of the tells you found. Three things may accompany it, nothing else: the labelled versions when the user asked for options, one line saying the draft is already good when it is, and one line asking for a fact the draft is missing. A rewrite that only shuffles words is worse than no rewrite.
 
 When the user asks for it on the clipboard, pipe it through `pbcopy` on macOS, and still show the message in the reply so they can read it before sending.
-
-If the draft is already good, say so and return it unchanged. A rewrite that only shuffles words is worse than no rewrite.
 
 ## Check before returning
 
@@ -138,22 +138,18 @@ Read the rewrite once as the recipient. Then confirm:
 
 - The first two sentences say what happened or what to do.
 - Every number, name, date and caveat from the draft is still present, or was deliberately cut with the writer's knowledge.
+- Every number, name and date in the rewrite traces to the draft or to something the writer confirmed. Nothing was supplied to fill a gap.
 - No header, bold label, or rule survives on a message that fits one screen.
 - No more than one em dash, and it earns its place.
 - Nothing offers help nobody asked for.
 - Read aloud, no sentence makes you stumble.
+- On a serious message, nothing was loosened, conceded, or warmed.
 
 If the message would embarrass the writer when forwarded, it is not finished.
 
 ## Anti-patterns
 
-**Terse-ifying instead of cutting.** Chopping every sentence to five words while keeping all seven paragraphs. The length barely moves and the tone gets worse.
-
-**Rewriting into your own voice.** The goal is the writer sounding like themselves on a good day, not sounding like you.
-
-**Explaining the rewrite.** Commentary around the message means the user has to extract it before sending. Return the message.
-
-**Loosening a serious message.** Casual register on an incident, an invoice, or a security disclosure reads as not taking it seriously.
+**Rewriting into your own voice.** The goal is the writer sounding like themselves on a good day, not sounding like you. Their voice is what recurs across the draft and their prior messages: sentence length, whether they use contractions, how they open, how they say no. Where their habits and the reader's register pull apart, formality follows the reader and word choice follows the writer; you can be terse and still write "Dear Ms Vance."
 
 **Treating this as a grammar pass.** If nothing was deleted, nothing was humanized.
 
@@ -165,6 +161,10 @@ Before:
 
 After:
 
-> The reporting cutover is slipping past the end of the month. About 12,000 historical records don't match the new schema, so validation fails on import. I'll have a revised date on Thursday once we know whether we can convert them or have to drop them.
+> The reporting cutover is slipping past the end of the month. Some historical records don't match the expected schema, which is holding up data validation. We're weighing options and we'll come back with a revised plan.
 
-The rewrite is a third of the length. It leads with the news, replaces "a subset of historical records" with a number, replaces "evaluating our options" with the actual decision being made, and gives the reader a date. Nothing accurate was lost.
+Down to a third of the length: 109 words to 36. It leads with the news, drops the greeting, the recap, and the closing offer, and keeps the writer's promise at the strength they made it. It still says "some records" and "a revised plan", because the draft never said how many or when. Guessing there would have been the worse message, however much better it read.
+
+The gap goes back to the writer instead, in one line beside the rewrite:
+
+> How many records, and when will you know the new date? Both would land better, if you have them.
