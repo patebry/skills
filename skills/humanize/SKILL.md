@@ -115,6 +115,10 @@ A Telegram or Slack note to a colleague is loose: lowercase openings, no salutat
 
 Match the reader's own register when you have their prior messages. If they write in three-word lines, do not send them five paragraphs.
 
+**Chat has a hard length ceiling, and it is short.** A Slack or Telegram message is at most three short paragraphs, and one or two is the normal case. Anything longer gets skimmed, and a wall of text from a vendor or a colleague reads as a document someone forgot to attach. If the content genuinely needs more room, send the ask in chat and put the detail in a thread, a doc, or an email, then say where it is.
+
+Cut to the ceiling by dropping topics, not by compressing every sentence. A chat message carries one ask. Supporting detail earns its place only when the reader needs it to answer, and a reader who needs more will ask. In particular, background on why the problem matters to you is almost never needed: the recipient cares what you want, not how you got here.
+
 ## Serious messages
 
 Legal, financial, security, incident, and contractual messages, and anything a third party might read later, do not get loosened. Plain and precise is the goal there and casual is a liability.
@@ -130,7 +134,7 @@ Establish the channel and the audience. If the draft does not make either obviou
 
 Return only the rewritten message, ready to paste. No preamble, no explanation of what you changed, no list of the tells you found. Three things may accompany it, nothing else: the labelled versions when the user asked for options, one line saying the draft is already good when it is, and one line asking for a fact the draft is missing. A rewrite that only shuffles words is worse than no rewrite.
 
-When the user asks for it on the clipboard, pipe it through `pbcopy` on macOS, and still show the message in the reply so they can read it before sending.
+Always copy the finished message to the clipboard with `pbcopy` on macOS, without being asked, and still show it in the reply so it can be read before sending. Pipe the exact text that is shown: no surrounding fences, no labels, nothing the reader would have to delete after pasting. When the reply offers several labelled versions, copy the recommended one and say which went to the clipboard.
 
 ## Check before returning
 
