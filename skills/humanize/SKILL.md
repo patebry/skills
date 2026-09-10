@@ -57,23 +57,7 @@ These are structural, and they survive any amount of word-level polishing. Name 
 
 The same handful of swaps carry most of the work. Apply them by reflex.
 
-"I wanted to let you know that X" becomes "X."
-
-"We are currently in the process of investigating" becomes "we're looking into it."
-
-"There appear to be some issues with" becomes the issue, named.
-
-"Please find attached" becomes "attached is" or nothing.
-
-"At your earliest convenience" becomes a date.
-
-"Going forward" and "moving forward" become nothing, or "from now on" when the contrast matters.
-
-"Reach out" becomes "ask", "email", "call", "message" — whichever one you mean.
-
-"Leverage", "utilize", "facilitate" become "use", "use", "help".
-
-"In order to" becomes "to".
+Delete outright: "I wanted to let you know that", "please find attached", "going forward". Shorten: "in order to" to "to"; "leverage" and "utilize" to "use"; "facilitate" to "help"; "we are currently in the process of investigating" to "we're looking into it". Replace with the specific thing: "there appear to be some issues with" becomes the issue named, "at your earliest convenience" becomes a date, "reach out" becomes ask, email, call or message, whichever one you mean.
 
 ## What not to change
 
@@ -115,11 +99,25 @@ A Telegram or Slack note to a colleague is loose: lowercase openings, no salutat
 
 Match the reader's own register when you have their prior messages. If they write in three-word lines, do not send them five paragraphs.
 
-**Chat has a hard length ceiling, and it is short.** A Slack or Telegram message is at most three short paragraphs, and one or two is the normal case. Anything longer gets skimmed, and a wall of text from a vendor or a colleague reads as a document someone forgot to attach. If the content genuinely needs more room, send the ask in chat and put the detail in a thread, a doc, or an email, then say where it is.
+**Chat is one ask, two or three sentences.** Not three paragraphs. Zero em dashes and zero semicolons, because a chat line cannot carry an aside and a dash after a greeting is the loudest tell there is.
 
-**Chat gets zero em dashes.** Not one, zero. The allowance elsewhere in this file is for prose that can carry an aside; a chat message cannot, and an em dash after a greeting is the single most recognisable tell there is. Use a comma, a full stop, or nothing. The same goes for semicolons.
+**Cut the evidence, keep the question.** The commonest failure is sending the reader your diagnostics. They do not need your timestamps, counts, error bodies, or how you ruled things out. They need what you want. If they need evidence to answer, they will ask, and then you have a thread.
 
-Cut to the ceiling by dropping topics, not by compressing every sentence. A chat message carries one ask. Supporting detail earns its place only when the reader needs it to answer, and a reader who needs more will ask. In particular, background on why the problem matters to you is almost never needed: the recipient cares what you want, not how you got here.
+Before:
+
+> Hey, we started hitting 429s on the workflows API this week. Worst was Tuesday afternoon (~136 rejections, heaviest around 14:58 UTC) on wf_cmq9ryvot00060fs6z4ue5ore.
+>
+> What's the rate limit on /v2/workflows/{id}/execute, is it keyed on the API key, project or IP, and can it be raised? The 429s come back as an HTML page from Google Frontend with no X-RateLimit headers or Retry-After, so there's nothing for us to read.
+>
+> Happy to add backoff on our side, we just need to know what we're backing off to.
+
+After:
+
+> Hey, we've started hitting 429s on the workflows API. Can our limit be raised so we stop hitting them?
+>
+> Also what's the actual rule? Couldn't find it in the docs.
+
+Every number in the first version is real and none of it earns a place. The vendor knows their own limit; they do not need our measurement of it to tell us. Note also what survived: both asks, and the fact that the docs were already checked, which is the one detail that changes their reply.
 
 ## Serious messages
 
