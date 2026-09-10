@@ -117,6 +117,8 @@ Match the reader's own register when you have their prior messages. If they writ
 
 **Chat has a hard length ceiling, and it is short.** A Slack or Telegram message is at most three short paragraphs, and one or two is the normal case. Anything longer gets skimmed, and a wall of text from a vendor or a colleague reads as a document someone forgot to attach. If the content genuinely needs more room, send the ask in chat and put the detail in a thread, a doc, or an email, then say where it is.
 
+**Chat gets zero em dashes.** Not one, zero. The allowance elsewhere in this file is for prose that can carry an aside; a chat message cannot, and an em dash after a greeting is the single most recognisable tell there is. Use a comma, a full stop, or nothing. The same goes for semicolons.
+
 Cut to the ceiling by dropping topics, not by compressing every sentence. A chat message carries one ask. Supporting detail earns its place only when the reader needs it to answer, and a reader who needs more will ask. In particular, background on why the problem matters to you is almost never needed: the recipient cares what you want, not how you got here.
 
 ## Serious messages
@@ -144,7 +146,8 @@ Read the rewrite once as the recipient. Then confirm:
 - Every number, name, date and caveat from the draft is still present, or was deliberately cut with the writer's knowledge.
 - Every number, name and date in the rewrite traces to the draft or to something the writer confirmed. Nothing was supplied to fill a gap.
 - No header, bold label, or rule survives on a message that fits one screen.
-- No more than one em dash, and it earns its place.
+- No more than one em dash, and it earns its place. In chat, none at all.
+- Count the em dashes in the final text before returning it. Do not trust a read-through for this.
 - Nothing offers help nobody asked for.
 - Read aloud, no sentence makes you stumble.
 - On a serious message, nothing was loosened, conceded, or warmed.
