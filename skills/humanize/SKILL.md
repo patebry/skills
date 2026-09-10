@@ -57,23 +57,7 @@ These are structural, and they survive any amount of word-level polishing. Name 
 
 The same handful of swaps carry most of the work. Apply them by reflex.
 
-"I wanted to let you know that X" becomes "X."
-
-"We are currently in the process of investigating" becomes "we're looking into it."
-
-"There appear to be some issues with" becomes the issue, named.
-
-"Please find attached" becomes "attached is" or nothing.
-
-"At your earliest convenience" becomes a date.
-
-"Going forward" and "moving forward" become nothing, or "from now on" when the contrast matters.
-
-"Reach out" becomes "ask", "email", "call", "message" — whichever one you mean.
-
-"Leverage", "utilize", "facilitate" become "use", "use", "help".
-
-"In order to" becomes "to".
+Delete outright: "I wanted to let you know that", "please find attached", "going forward". Shorten: "in order to" to "to"; "leverage" and "utilize" to "use"; "facilitate" to "help"; "we are currently in the process of investigating" to "we're looking into it". Replace with the specific thing: "there appear to be some issues with" becomes the issue named, "at your earliest convenience" becomes a date, "reach out" becomes ask, email, call or message, whichever one you mean.
 
 ## What not to change
 
@@ -115,6 +99,26 @@ A Telegram or Slack note to a colleague is loose: lowercase openings, no salutat
 
 Match the reader's own register when you have their prior messages. If they write in three-word lines, do not send them five paragraphs.
 
+**Chat is one ask, two or three sentences.** Not three paragraphs. Zero em dashes and zero semicolons, because a chat line cannot carry an aside and a dash after a greeting is the loudest tell there is.
+
+**Cut the evidence, keep the question.** The commonest failure is sending the reader your diagnostics. They do not need your timestamps, counts, error bodies, or how you ruled things out. They need what you want. If they need evidence to answer, they will ask, and then you have a thread.
+
+Before:
+
+> Hey, we started hitting 429s on the workflows API this week. Worst was Tuesday afternoon (~136 rejections, heaviest around 14:58 UTC) on wf_cmq9ryvot00060fs6z4ue5ore.
+>
+> What's the rate limit on /v2/workflows/{id}/execute, is it keyed on the API key, project or IP, and can it be raised? The 429s come back as an HTML page from Google Frontend with no X-RateLimit headers or Retry-After, so there's nothing for us to read.
+>
+> Happy to add backoff on our side, we just need to know what we're backing off to.
+
+After:
+
+> Hey, we've started hitting 429s on the workflows API. Can our limit be raised so we stop hitting them?
+>
+> Also what's the actual rule? Couldn't find it in the docs.
+
+Every number in the first version is real and none of it earns a place. The vendor knows their own limit; they do not need our measurement of it to tell us. Note also what survived: both asks, and the fact that the docs were already checked, which is the one detail that changes their reply.
+
 ## Serious messages
 
 Legal, financial, security, incident, and contractual messages, and anything a third party might read later, do not get loosened. Plain and precise is the goal there and casual is a liability.
@@ -130,7 +134,7 @@ Establish the channel and the audience. If the draft does not make either obviou
 
 Return only the rewritten message, ready to paste. No preamble, no explanation of what you changed, no list of the tells you found. Three things may accompany it, nothing else: the labelled versions when the user asked for options, one line saying the draft is already good when it is, and one line asking for a fact the draft is missing. A rewrite that only shuffles words is worse than no rewrite.
 
-When the user asks for it on the clipboard, pipe it through `pbcopy` on macOS, and still show the message in the reply so they can read it before sending.
+Always copy the finished message to the clipboard with `pbcopy` on macOS, without being asked, and still show it in the reply so it can be read before sending. Pipe the exact text that is shown: no surrounding fences, no labels, nothing the reader would have to delete after pasting. When the reply offers several labelled versions, copy the recommended one and say which went to the clipboard.
 
 ## Check before returning
 
@@ -140,7 +144,8 @@ Read the rewrite once as the recipient. Then confirm:
 - Every number, name, date and caveat from the draft is still present, or was deliberately cut with the writer's knowledge.
 - Every number, name and date in the rewrite traces to the draft or to something the writer confirmed. Nothing was supplied to fill a gap.
 - No header, bold label, or rule survives on a message that fits one screen.
-- No more than one em dash, and it earns its place.
+- No more than one em dash, and it earns its place. In chat, none at all.
+- Count the em dashes in the final text before returning it. Do not trust a read-through for this.
 - Nothing offers help nobody asked for.
 - Read aloud, no sentence makes you stumble.
 - On a serious message, nothing was loosened, conceded, or warmed.
